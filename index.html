@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -29,17 +29,27 @@
             display: block;
         }
 
+        /* Центрирование блока с логотипом и прогресс-баром */
         #unity-loading-bar {
             position: absolute;
-            width: 100%;
-            bottom: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
-            justify-content: center; /* Центрируем по горизонтали */
-            align-items: center; /* Центрируем по вертикали */
+            flex-direction: column;
+            align-items: center;
+            width: 300px; /* Фиксированная ширина для блока */
+        }
+
+        #unity-logo {
+            width: 200px;
+            height: 100px;
+            background-color: #000; /* Пример фона для логотипа */
+            margin-bottom: 20px; /* Отступ от прогресс-бара */
         }
 
         #unity-progress-bar-empty {
-            width: 50%; /* Ширина прогресс-бара 50% от ширины экрана */
+            width: 100%;
             height: 20px;
             background-color: #ccc;
             border-radius: 10px;
@@ -57,15 +67,15 @@
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
+        <div id="unity-logo"></div> <!-- Логотип -->
         <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+          <div id="unity-progress-bar-full"></div> <!-- Прогресс-бар -->
         </div>
       </div>
       <div id="unity-warning"> </div>
     </div>
-    <script>      
-function downloadImage(dataUri) {
+    <script>
+     function downloadImage(dataUri) {
 var link = document.createElement('a');
 link.href = dataUri;
 link.download = 'screenshot.jpg';
@@ -140,4 +150,4 @@ document.body.removeChild(link);
       document.body.appendChild(script);
     </script>
   </body>
-</html> 
+</html>
