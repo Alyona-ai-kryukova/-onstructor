@@ -48,6 +48,15 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
+function downloadImage(dataUri) {
+var link = document.createElement('a');
+link.href = dataUri;
+link.download = 'screenshot.jpg';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+}
+      
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
