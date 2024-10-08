@@ -38,6 +38,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             width: 300px; /* Фиксированная ширина для блока */
         }
 
@@ -46,20 +47,24 @@
             height: 100px;
             background-color: #000; /* Пример фона для логотипа */
             margin-bottom: 20px; /* Отступ от прогресс-бара */
+            display: block; /* Логотип отображается как блок */
         }
 
+        /* Прогресс-бар */
         #unity-progress-bar-empty {
             width: 100%;
             height: 20px;
             background-color: #ccc;
             border-radius: 10px;
             overflow: hidden;
+            display: flex;
         }
 
         #unity-progress-bar-full {
             height: 100%;
             background-color: #4CAF50;
             width: 0%;
+            transition: width 0.2s ease; /* Добавлен плавный переход */
         }
     </style>
   </head>
@@ -75,7 +80,7 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
-     function downloadImage(dataUri) {
+      function downloadImage(dataUri) {
 var link = document.createElement('a');
 link.href = dataUri;
 link.download = 'screenshot.jpg';
@@ -139,7 +144,7 @@ document.body.removeChild(link);
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
+          progressBarFull.style.width = 100 * progress + "%"; /* Прогресс бар плавно заполняется */
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
         }).catch((message) => {
