@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -33,6 +33,23 @@
             position: absolute;
             width: 100%;
             bottom: 0;
+            display: flex;
+            justify-content: center; /* Центрируем по горизонтали */
+            align-items: center; /* Центрируем по вертикали */
+        }
+
+        #unity-progress-bar-empty {
+            width: 50%; /* Ширина прогресс-бара 50% от ширины экрана */
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #unity-progress-bar-full {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0%;
         }
     </style>
   </head>
@@ -47,7 +64,7 @@
       </div>
       <div id="unity-warning"> </div>
     </div>
-    <script>
+    <script>      
 function downloadImage(dataUri) {
 var link = document.createElement('a');
 link.href = dataUri;
@@ -56,7 +73,6 @@ document.body.appendChild(link);
 link.click();
 document.body.removeChild(link);
 }
-      
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -124,4 +140,4 @@ document.body.removeChild(link);
       document.body.appendChild(script);
     </script>
   </body>
-</html>
+</html> 
